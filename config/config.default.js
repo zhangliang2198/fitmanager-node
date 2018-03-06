@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = appInfo => {
+  var exports;
   const config = exports = {};
 
   // use for cookie sign key, should change to your own and keep security
@@ -8,6 +9,18 @@ module.exports = appInfo => {
 
   // add your config here
   config.middleware = [];
+
+  exports.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: [ 'http://localhost:8000' ]
+  };
+
+  exports.cors = {
+    origin :'*',
+  };
 
   return config;
 };
